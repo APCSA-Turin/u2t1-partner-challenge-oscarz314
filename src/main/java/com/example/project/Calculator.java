@@ -3,8 +3,8 @@ public class Calculator{
     public String calcModel;
     
     //constructor that creates an instance of the calculator class
-    public Calculator() {
-        //implement code here
+    public Calculator(String name) {
+        calcModel = name;
     }
     
     // method that performs the operation designated by operand (which
@@ -16,7 +16,24 @@ public class Calculator{
     // (THIS METHOD DOES NOT PRINT)
     public double performOperation(String operand, int num1, int num2) {
         //implement code here
-        return 0.00;
+        int result;
+        if (operand.equals("+")){
+            result = num1 + num2;
+        }
+        else if (operand.equals("-")){
+            result = num1 - num2;
+        }
+        else if (operand.equals("*")){
+            result = num1 * num2;
+        }
+        else if (operand.equals("/")){
+            result = num1 / num2;
+        }
+        else{
+            return 0.000;
+        }
+        
+        return result;
     }
 
     // method that checks if num1 is evenly divisible by num2, and if so,
@@ -24,7 +41,13 @@ public class Calculator{
     // (THIS METHOD DOES NOT PRINT)
     public boolean divisibleBy(int num1, int num2) {
         //implement code here
-        return false;
+        if (num1 % num2 == 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
     }
 
     // method that constructs and returns a string representing a coordinate
@@ -32,13 +55,25 @@ public class Calculator{
     // (THIS METHOD DOES NOT PRINT)
     public String coordinatePair(int x, int y) {
         //implement code here
-        return "";
+        String coordinate = "(" + x + "," + y + ")";
+        return coordinate;
     }
+
+
     // method that determines and returns the result of |num1 - num2|
     // (THIS METHOD DOES NOT PRINT)
     public int absoluteValue(int num1, int num2) {
         //implement code here
-        return 0;
+        int difference = num1 - num2;
+        
+        if (difference >= 0) {
+            return difference;
+        }
+        else {
+            difference *= -1;
+        }
+    
+    return difference;      
     }
     
     // method that constructs and returns a String in the format:
@@ -47,6 +82,6 @@ public class Calculator{
     // (THIS METHOD DOES NOT PRINT)
     public String info() {
         //implement code here
-        return "";
+        return "This calculator is a model "+calcModel+" where "+calcModel+" should be filled in with the value stored in the calcModel instance variable.";
     }
 }
